@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-on-tertiary-fixed-variant: #6d3a00;
+  --color-inverse-primary: #44d8f1;
+  --color-secondary: #215abd;
+  --color-on-secondary-fixed-variant: #00429b;
+  --color-surface: #faf8ff;
+  --color-action-orange: #FF811B;
+  --color-on-secondary: #ffffff;
+  --color-on-surface: #131b2e;
+  --color-on-primary-fixed-variant: #004e59;
+  --color-error: #ba1a1a;
+  --color-deep-navy: #0F172A;
+  --color-tertiary-fixed-dim: #ffb77b;
+  --color-secondary-fixed-dim: #b0c6ff;
+  --color-on-primary: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-outline-variant: #bbc9cc;
+  --color-primary-container: #00bcd4;
+  --color-outline: #6c797c;
+  --color-tertiary-container: #f19640;
+  --color-tertiary: #8f4e00;
+  --color-surface-variant: #dae2fd;
+  --color-secondary-fixed: #d9e2ff;
+  --color-inverse-surface: #283044;
+  --color-on-tertiary: #ffffff;
+  --color-on-surface-variant: #3c494c;
+  --color-background: #faf8ff;
+  --color-on-primary-container: #004650;
+  --color-primary: #006876;
+  --color-secondary-container: #6a98ff;
+  --color-primary-fixed: #a1efff;
+  --color-on-secondary-fixed: #001945;
+  --color-surface-tint: #006876;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-secondary-container: #002f74;
+  --color-primary-fixed-dim: #44d8f1;
+  --color-surface-glass: rgba(255, 255, 255, 0.7);
+  --color-surface-container-highest: #dae2fd;
+  --color-on-tertiary-container: #633400;
+  --color-on-error: #ffffff;
+  --color-tertiary-fixed: #ffdcc2;
+  --color-vibrant-blue: #00B3FF;
+  --color-on-primary-fixed: #001f25;
+  --color-inverse-on-surface: #eef0ff;
+  --color-on-background: #131b2e;
+  --color-surface-container-low: #f2f3ff;
+  --color-error-container: #ffdad6;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container: #eaedff;
+  --color-surface-bright: #faf8ff;
+  --color-surface-dim: #d2d9f4;
+  --color-on-tertiary-fixed: #2e1500;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Spacing */
+  --spacing-section-padding-mobile: 64px;
+  --spacing-section-padding-desktop: 120px;
+  --spacing-container-max: 1280px;
+  --spacing-gutter: 24px;
+  --spacing-unit: 8px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Font Families */
+  --font-sans: "Inter", var(--font-geist-sans), sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-label-md: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-headline-lg-mobile: "Inter", sans-serif;
+  --font-headline-md: "Inter", sans-serif;
+  --font-headline-lg: "Inter", sans-serif;
+  --font-display-lg: "Inter", sans-serif;
+
+  /* Custom Animations & Keyframes */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 8s ease-in-out infinite;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(3deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0% {
+      transform: scale(1);
+      opacity: 0.1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.15;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.1;
+    }
   }
 }
 
+/* Custom CSS Utilities */
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@utility text-gradient {
+  background: linear-gradient(90deg, #00bcd4 0%, #00b3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility bg-gradient-primary {
+  background: linear-gradient(90deg, #00bcd4 0%, #00b3ff 100%);
+}
+
+@utility hero-pattern {
+  background-color: #faf8ff;
+  background-image:
+    radial-gradient(#00bcd4 0.5px, transparent 0.5px),
+    radial-gradient(#00bcd4 0.5px, #faf8ff 0.5px);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    10px 10px;
+  opacity: 0.8;
+}
+
+/* Custom Text styles matching Tailwind config in original code.html */
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+@utility text-label-md {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@utility text-headline-lg-mobile {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+@utility text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+@utility text-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+@utility text-display-lg {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Base style resets */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-slow {
+    animation: none !important;
+  }
 }
