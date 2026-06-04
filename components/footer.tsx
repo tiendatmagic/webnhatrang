@@ -137,7 +137,7 @@ export function Footer() {
         {/* Bottom copyright banner */}
         <div className="w-full border-t border-outline-variant/30 pt-8 mt-8 text-center relative z-10">
           <p className="text-body-md text-on-surface-variant">
-            © 2024 WEB NHA TRANG. Made with ❤️ in Nha Trang.
+            © 2026 WEB NHA TRANG. Made with ❤️ in Nha Trang.
           </p>
         </div>
       </div>
